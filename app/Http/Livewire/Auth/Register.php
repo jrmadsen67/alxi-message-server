@@ -12,7 +12,10 @@ use Livewire\Component;
 class Register extends Component
 {
     /** @var string */
-    public $name = '';
+    public $first_name = '';
+
+    /** @var string */
+    public $last_name = '';
 
     /** @var string */
     public $email = '';
@@ -26,14 +29,16 @@ class Register extends Component
     public function register()
     {
         $this->validate([
-            'name' => ['required'],
+            'first_name' => ['required'],
+            'last_name' => ['required'],
             'email' => ['required', 'email', 'unique:users'],
             'password' => ['required', 'min:8', 'same:passwordConfirmation'],
         ]);
 
         $user = User::create([
             'email' => $this->email,
-            'name' => $this->name,
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
             'password' => Hash::make($this->password),
         ]);
 
