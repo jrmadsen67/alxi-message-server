@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Device extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nickname',
+        'imei',
+        'os',
+        'virtual_location_id',
+        'physical_location_id',
+        'physical_location_port'
+    ];
 }

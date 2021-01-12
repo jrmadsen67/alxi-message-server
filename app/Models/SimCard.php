@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class SimCard extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'iccid', 'msisdn', 'network_id'
+    ];
 }

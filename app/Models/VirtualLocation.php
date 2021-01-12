@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class VirtualLocation extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'country_id'
+    ];
+
+    public function devices()
+    {
+        return $this->hasMany(Device::class);
+    }
 }
