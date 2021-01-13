@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Country;
 use Illuminate\Database\Seeder;
 
 class CountrySeeder extends Seeder
@@ -13,6 +14,7 @@ class CountrySeeder extends Seeder
      */
     public function run()
     {
-        //
+        Country::truncate();
+        Country::factory()->count(30)->create();
     }
 }
