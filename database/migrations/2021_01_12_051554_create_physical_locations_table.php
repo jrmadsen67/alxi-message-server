@@ -16,7 +16,7 @@ class CreatePhysicalLocationsTable extends Migration
         Schema::create('physical_locations', function (Blueprint $table) {
             $table->id();
             $table->string('nickname')->unique();
-            $table->ipAddress('ip')->unique();
+            $table->string('host')->unique();
             $table->unsignedBigInteger('country_id');
             $table->timestamps();
         });

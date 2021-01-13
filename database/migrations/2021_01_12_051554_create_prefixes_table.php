@@ -15,7 +15,7 @@ class CreatePrefixesTable extends Migration
     {
         Schema::create('prefixes', function (Blueprint $table) {
             $table->id();
-            $table->integer('prefix');
+            $table->string('prefix');
             $table->unsignedBigInteger('network_id');
             $table->timestamps();
 

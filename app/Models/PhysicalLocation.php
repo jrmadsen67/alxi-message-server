@@ -10,7 +10,7 @@ class PhysicalLocation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nickname', 'ip', 'country_id'
+        'nickname', 'host', 'country_id'
     ];
 
     public function devices()

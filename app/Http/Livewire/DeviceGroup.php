@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class Physicallocation extends Component
+class DeviceGroup extends Component
 {
     public function render()
     {
-        return view('livewire.physicallocation');
+        return view('livewire.device-group');
     }
 }
