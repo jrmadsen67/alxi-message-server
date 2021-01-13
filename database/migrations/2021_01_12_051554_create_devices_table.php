@@ -18,7 +18,6 @@ class CreateDevicesTable extends Migration
             $table->string('nickname')->unique();
             $table->string('imei')->unique();
             $table->enum('os', ['iOS', 'Android']);
-            $table->unsignedBigInteger('device_group_id')->nullable();
             $table->unsignedBigInteger('virtual_location_id')->nullable();
             $table->unsignedBigInteger('physical_location_id')->nullable();
             $table->unsignedInteger('physical_location_port')->nullable();

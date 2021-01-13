@@ -13,7 +13,6 @@ class Device extends Model
         'nickname',
         'imei',
         'os',
-        'device_group_id',
         'virtual_location_id',
         'physical_location_id',
         'physical_location_port'
