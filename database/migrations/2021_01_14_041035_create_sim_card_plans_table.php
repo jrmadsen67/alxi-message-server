@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSimCardsTable extends Migration
+class CreateSimCardPlansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateSimCardsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sim_cards', function (Blueprint $table) {
+        Schema::create('sim_card_plans', function (Blueprint $table) {
             $table->id();
-            $table->string('iccid')->unique();
-            $table->string('msisdn')->unique();
-            $table->unsignedBigInteger('network_id');
-            $table->unsignedBigInteger('device_plan_id');
-            $table->unsignedBigInteger('sim_card_plan_id');
+            $table->string('nickname')->unique();
+            $table->integer('hourly_capacity')->default(0);
+            $table->integer('daily_capacity')->default(0);
+            $table->integer('monthly_capacity')->default(0);
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateSimCardsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sim_cards');
+        Schema::dropIfExists('sim_card_plans');
     }
 }
