@@ -53,4 +53,10 @@ class Countries extends Component
 
 //        $this->resetInputFields();
     }
+
+    public function delete($country)
+    {
+        $country = Country::find($country['id']);
+        $country->delete();
+    }
 }
