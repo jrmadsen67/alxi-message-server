@@ -1,6 +1,9 @@
 <div>
     <div class="mt-8">
 
+        @if($updateMode)
+            @include('livewire.countries.edit')
+        @else
         <h2 class="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">
             Countries
         </h2>
@@ -34,7 +37,7 @@
                                     {{ $country->cc }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <a href="/countries/{{ $country->id }}" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                    <button wire:click="edit({{ $country }})" class="text-indigo-600 hover:text-indigo-900">Edit</button>
                                 </td>
                             </tr>
                             @endforeach
@@ -67,5 +70,6 @@
                 </div>
             </div>
         </div>
+        @endif
     </div>
 </div>

@@ -2,41 +2,48 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Country;
 use Livewire\Component;
 
-class CountryForm extends Component
-{
-    public Country $country;
+use App\Models\Country;
 
+class Countries extends Component
+{
+    public $selected_id;
     public $name;
     public $cc;
+    public $updateMode = false;
 
     public function render()
     {
-        logger('render');
-        $this->name = $this->country->name;
-        $this->cc = $this->country->cc;
-        return view('livewire.country-form');
+        return view('livewire.countries.component', [
+            'countries' => Country::all()->sortBy('name'),
+        ]);
     }
 
     public function edit($country)
     {
-//        $this->name = $country->name;
-//        $this->cc = $country->cc;
-        logger('edit');
+        $country = (object) $country;
+        $this->selected_id = $country->id;
+        $this->name = $country->name;
+        $this->cc = $country->cc;
+
         $this->updateMode = true;
+    }
+
+    public function cancelEdit()
+    {
+        $this->updateMode = false;
     }
 
     public function update()
     {
-        logger('update');
         $validatedDate = $this->validate([
             'name' => 'required',
             'cc' => 'required',
         ]);
 
-        $this->country->update([
+        $country = Country::find($this->selected_id);
+        $country->update([
             'name' => $this->name,
             'cc' => $this->cc,
         ]);
