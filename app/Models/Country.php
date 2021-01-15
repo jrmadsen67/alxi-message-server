@@ -9,7 +9,7 @@ class Country extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['country', 'cc'];
+    protected $fillable = ['name', 'cc'];
 
     public function physicalLocations()
     {

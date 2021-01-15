@@ -4,14 +4,14 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-use App\Models\Country as Countries;
+use App\Models\Country;
 
-class Country extends Component
+class CountryList extends Component
 {
     public function render()
     {
         return view('livewire.country', [
-            'countries' => Countries::all()->sortBy('country'),
+            'countries' => Country::all()->sortBy('name'),
         ]);
     }
 }

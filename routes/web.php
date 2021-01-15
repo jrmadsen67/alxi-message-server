@@ -8,7 +8,8 @@ use App\Http\Livewire\Auth\Passwords\Email;
 use App\Http\Livewire\Auth\Passwords\Reset;
 use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
-use App\Http\Livewire\Country;
+use App\Http\Livewire\CountryForm;
+use App\Http\Livewire\CountryList;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,5 +59,7 @@ Route::middleware('auth')->group(function () {
 
     Route::view('/dashboard', 'dashboard')->name('dashboard');
 
-    Route::get('/countries', Country::class)->name('countries');
+    Route::get('/countries/{country}', CountryForm::class)->name('countries.form');
+    Route::get('/countries', CountryList::class)->name('countries');
+
 });
