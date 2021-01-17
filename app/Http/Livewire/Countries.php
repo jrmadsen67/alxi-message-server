@@ -12,6 +12,7 @@ class Countries extends Component
     public $name;
     public $cc;
     public $updateMode = false;
+    public $createMode = false;
 
     public function render()
     {
@@ -30,9 +31,10 @@ class Countries extends Component
         $this->updateMode = true;
     }
 
-    public function cancelEdit()
+    public function cancel()
     {
         $this->updateMode = false;
+        $this->createMode = false;
     }
 
     public function update()
@@ -50,8 +52,24 @@ class Countries extends Component
 
         $this->updateMode = false;
         session()->flash('message', 'Country Updated Successfully.');
+    }
 
-//        $this->resetInputFields();
+    public function create()
+    {
+        $this->createMode = true;
+    }
+
+    public function store()
+    {
+        $validatedData = $this->validate([
+            'name' => 'required',
+            'cc' => 'required',
+        ]);
+
+        Country::create($validatedData);
+
+        $this->createMode = false;
+        session()->flash('message', 'Country Created Successfully.');
     }
 
     public function delete($country)
