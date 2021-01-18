@@ -11,6 +11,9 @@ class Countries extends Component
     public $selected_id;
     public $name;
     public $cc;
+
+    public $networks;
+
     public $updateMode = false;
     public $createMode = false;
 
@@ -21,12 +24,15 @@ class Countries extends Component
         ]);
     }
 
-    public function edit($country)
+    public function edit($id)
     {
-        $country = (object) $country;
+        $country = Country::find($id);
+
         $this->selected_id = $country->id;
         $this->name = $country->name;
         $this->cc = $country->cc;
+
+        $this->networks = $country->networks;
 
         $this->updateMode = true;
     }
@@ -72,9 +78,9 @@ class Countries extends Component
         session()->flash('message', 'Country Created Successfully.');
     }
 
-    public function delete($country)
+    public function delete($id)
     {
-        $country = Country::find($country['id']);
+        $country = Country::find($id);
         $country->delete();
     }
 }
