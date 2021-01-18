@@ -2,7 +2,7 @@
     <div class="mt-6  sm:px-6 lg:px-8">
 
         <form class="space-y-8 divide-y divide-gray-200">
-            <div class="space-y-8 divide-y divide-gray-200">
+            <div class="space-y-4 divide-y divide-gray-200">
                 <div>
                     <div>
                         <h3 class="text-lg leading-6 font-medium text-gray-900">
@@ -11,7 +11,7 @@
                     </div>
                 </div>
 
-                <div class="pt-8">
+                <div class="">
                     <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 relative">
                         <input type="hidden" wire:model="selected_id">
                         <div class="sm:col-span-3">

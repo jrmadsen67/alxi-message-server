@@ -13,6 +13,8 @@ class Countries extends Component
     public $cc;
 
     public $networks;
+    public $physicalLocations;
+    public $virtualLocations;
 
     public $updateMode = false;
     public $createMode = false;
@@ -33,6 +35,8 @@ class Countries extends Component
         $this->cc = $country->cc;
 
         $this->networks = $country->networks;
+        $this->physicalLocations = $country->physicalLocations;
+        $this->virtualLocations = $country->virtualLocations;
 
         $this->updateMode = true;
     }

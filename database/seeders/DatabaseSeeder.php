@@ -18,5 +18,7 @@ class DatabaseSeeder extends Seeder
         // currently dev - clean up
         $this->call(CountrySeeder::class);
         $this->call(NetworkSeeder::class);
+        $this->call(PhysicalLocationSeeder::class);
+        $this->call(VirtualLocationSeeder::class);
     }
 }
