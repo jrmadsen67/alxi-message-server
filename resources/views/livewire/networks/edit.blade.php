@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="sm:col-span-1">
-                            <label for="country_id" class="block text-sm font-medium text-gray-700">Location</label>
+                            <label for="country_id" class="block text-sm font-medium text-gray-700">Country</label>
                             <select wire:model="country_id" id="country_id" name="country_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                                 @foreach($countries as $country)
                                     <option value="{{ $country->id }}">{{ $country->name }}</option>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Network;
 use App\Models\Prefix;
 use Illuminate\Support\Str;
 
@@ -10,7 +11,7 @@ class Prefixes extends BaseLivewire
     public $prefix;
     public $network_id;
 
-//    public $devices;
+    public $networks;
 
     protected $rules = [
         'prefix' => 'required',
@@ -23,6 +24,7 @@ class Prefixes extends BaseLivewire
 
     public function setData()
     {
+        $this->networks = Network::select('id', 'name')->get();
         $this->renderData = [
             'records' => Prefix::all()->sortBy('prefix'),
             'entity' => Str::plural($this->entity)
@@ -41,8 +43,6 @@ class Prefixes extends BaseLivewire
         $this->selected_id = $record->id;
         $this->prefix = $record->prefix;
         $this->network_id = $record->network_id;
-
-//        $this->devices = $record->devices;
 
         $this->updateMode = true;
     }

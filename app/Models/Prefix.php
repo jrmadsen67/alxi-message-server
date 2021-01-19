@@ -12,4 +12,9 @@ class Prefix extends Model
     protected $fillable = [
         'prefix', 'network_id'
     ];
+
+    public function network()
+    {
+        return  $this->belongsTo(Network::class);
+    }
 }
