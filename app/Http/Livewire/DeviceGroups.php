@@ -2,12 +2,44 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
+use App\Models\DeviceGroup;
+use Illuminate\Support\Str;
 
-class DeviceGroups extends Component
+class DeviceGroups extends BaseLivewire
 {
-    public function render()
+    public $nickname;
+
+    public $devices;
+
+    protected $rules = [
+        'nickname' => 'required',
+    ];
+
+    protected $entity = 'device_group';
+
+    protected $modelName = 'App\Models\DeviceGroup';
+
+    public function setData()
     {
-        return view('livewire.device-groups');
+        $this->renderData = [
+            'records' => DeviceGroup::all()->sortBy('nickname'),
+            'entity' => Str::plural($this->entity)
+        ];
+    }
+
+    public function resetInput(){
+        $this->nickname = null;
+    }
+
+    public function edit($id)
+    {
+        $record = DeviceGroup::find($id);
+
+        $this->selected_id = $record->id;
+        $this->nickname = $record->nickname;
+
+        $this->devices = $record->devices;
+
+        $this->updateMode = true;
     }
 }
