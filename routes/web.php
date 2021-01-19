@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Livewire\Allocations;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Livewire\Auth\Passwords\Email;
@@ -10,7 +11,14 @@ use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
 use App\Http\Livewire\CountryForm;
 use App\Http\Livewire\Countries;
+use App\Http\Livewire\DeviceGroups;
+use App\Http\Livewire\Devices;
+use App\Http\Livewire\MccMncs;
 use App\Http\Livewire\Networks;
+use App\Http\Livewire\PhysicalLocations;
+use App\Http\Livewire\Prefixes;
+use App\Http\Livewire\SimCards;
+use App\Http\Livewire\VirtualLocations;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -62,5 +70,13 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/countries', Countries::class)->name('countries');
     Route::get('/networks', Networks::class)->name('networks');
+    Route::get('/device-groups', DeviceGroups::class)->name('device-groups');
+    Route::get('/devices', Devices::class)->name('devices');
+    Route::get('/allocations', Allocations::class)->name('allocations');
+    Route::get('/mcc-mncs', MccMncs::class)->name('mcc-mncs');
+    Route::get('/physical-locations', PhysicalLocations::class)->name('physical-locations');
+    Route::get('/prefixes', Prefixes::class)->name('prefixes');
+    Route::get('/sim-cards', SimCards::class)->name('sim-cards');
+    Route::get('/virtual-locations', VirtualLocations::class)->name('virtual-locations');
 
 });

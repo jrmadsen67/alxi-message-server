@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class Mccmnc extends Component
+class Allocations extends Component
 {
     public function render()
     {
-        return view('livewire.mccmnc');
+        return view('livewire.allocations');
     }
 }

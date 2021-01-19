@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class SimCard extends Component
+class Devices extends Component
 {
     public function render()
     {
-        return view('livewire.simcard');
+        return view('livewire.devices');
     }
 }

@@ -13,10 +13,31 @@ class BaseLivewire extends Component
 
     protected $rules = [];
 
+    protected $entity;
+
     protected $modelName;
 
-    public function render(){}
+    protected $renderData = [];
+
+    // ** Functions **//
+    public function mount()
+    {
+        $this->setData();
+    }
+
+    public function hydrate()
+    {
+        $this->setData();
+    }
+
+    public function render()
+    {
+        return view('livewire.component', $this->renderData);
+    }
+
     public function edit($id){}
+
+    public function resetInput(){}
 
     public function cancel()
     {
@@ -31,11 +52,13 @@ class BaseLivewire extends Component
         $record->update($validatedData);
 
         $this->updateMode = false;
+        $this->resetInput();
         session()->flash('message', 'Record Updated Successfully.');
     }
 
     public function create()
     {
+        $this->resetInput();
         $this->createMode = true;
     }
 

@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class VirtualLocation extends Component
+class Prefixes extends Component
 {
     public function render()
     {
-        return view('livewire.virtuallocation');
+        return view('livewire.prefixes');
     }
 }

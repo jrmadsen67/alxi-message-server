@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class Device extends Component
+class MccMncs extends Component
 {
     public function render()
     {
-        return view('livewire.device');
+        return view('livewire.mcc-mncs');
     }
 }

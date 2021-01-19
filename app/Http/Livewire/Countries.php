@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Str;
 use Livewire\Component;
 
 use App\Models\Country;
@@ -20,13 +21,21 @@ class Countries extends BaseLivewire
         'cc' => 'required',
     ];
 
+    protected $entity = 'country';
+
     protected $modelName = 'App\Models\Country';
 
-    public function render()
+    public function setData()
     {
-        return view('livewire.countries.component', [
+        $this->renderData = [
             'records' => Country::all()->sortBy('name'),
-        ]);
+            'entity' => Str::plural($this->entity)
+        ];
+    }
+
+    public function resetInput(){
+        $this->name = null;
+        $this->cc = null;
     }
 
     public function edit($id)
