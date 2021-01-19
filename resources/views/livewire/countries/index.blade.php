@@ -16,17 +16,17 @@
         </thead>
 
         <tbody class="bg-white divide-y divide-gray-200">
-        @foreach ($countries as $country)
+        @foreach ($records as $record)
             <tr>
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                    {{ $country->name }}
+                    {{ $record->name }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {{ $country->cc }}
+                    {{ $record->cc }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <a href="#" wire:click="edit({{ $country->id }})" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                    <a href="#" wire:click="delete({{ $country->id }})" class="ml-4 text-red-600 hover:text-indigo-900">Delete</a>
+                    <a href="#" wire:click="edit({{ $record->id }})" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                    <a href="#" wire:click="delete({{ $record->id }})" class="ml-4 text-red-600 hover:text-indigo-900">Delete</a>
                 </td>
             </tr>
         @endforeach

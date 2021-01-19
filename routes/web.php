@@ -10,6 +10,7 @@ use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
 use App\Http\Livewire\CountryForm;
 use App\Http\Livewire\Countries;
+use App\Http\Livewire\Networks;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,5 +61,6 @@ Route::middleware('auth')->group(function () {
     Route::view('/dashboard', 'dashboard')->name('dashboard');
 
     Route::get('/countries', Countries::class)->name('countries');
+    Route::get('/networks', Networks::class)->name('networks');
 
 });

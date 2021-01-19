@@ -24,6 +24,7 @@
                                         name="name"
                                         id="name"
                                         class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                @error('name') <span class="error">{{ $message }}</span> @enderror
                             </div>
                         </div>
 
@@ -33,6 +34,7 @@
                             </label>
                             <div class="mt-1">
                                 <input wire:model="cc" type="text" name="cc" id="cc"  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                                @error('name') <span class="error">{{ $message }}</span> @enderror
                             </div>
                         </div>
 

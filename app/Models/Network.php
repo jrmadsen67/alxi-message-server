@@ -13,6 +13,11 @@ class Network extends Model
         'name', 'country_id'
     ];
 
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
     public function mccMncs()
     {
         return $this->hasMany(MccMnc::class);

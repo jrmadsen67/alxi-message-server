@@ -15,7 +15,7 @@
                         <input type="hidden" wire:model="selected_id">
                         <div class="sm:col-span-3">
                             <label for="country" class="block text-sm font-medium text-gray-700">
-                                Country name
+                                Name
                             </label>
                             <div class="mt-1">
                                 <input  wire:model="name"
@@ -27,15 +27,14 @@
                             </div>
                         </div>
 
-                        <div class="sm:col-span-1">
-                            <label for="cc" class="block text-sm font-medium text-gray-700">
-                                Country Code
-                            </label>
-                            <div class="mt-1">
-                                <input wire:model="cc" type="text" name="cc" id="cc"  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                                @error('cc') <span class="error">{{ $message }}</span> @enderror
-                            </div>
-                        </div>
+{{--                        <div class="sm:col-span-1">--}}
+{{--                            <label for="cc" class="block text-sm font-medium text-gray-700">--}}
+{{--                                Country--}}
+{{--                            </label>--}}
+{{--                            <div class="mt-1">--}}
+{{--                                <input wire:model="cc" type="text" name="cc" id="cc"  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <div class="sm:col-span-2 absolute right-0 bottom-0 mr-1/6">
                             <button wire:click="cancel" type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
@@ -59,21 +58,27 @@
             <thead class="bg-gray-50">
             <tr>
                 <th scope="col" class="px-6 pt-3 pb-1 text-left text-sm  text-gray-500 uppercase tracking-wider">
-                    Networks
+                    MCCs & MNCs
                 </th>
             </tr>
             <tr>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Name
+                    MCC
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    MNC
                 </th>
             </tr>
             </thead>
 
             <tbody class="bg-white divide-y divide-gray-200">
-            @foreach ($networks as $record)
+            @foreach ($mccMncs as $record)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {{ $record->name }}
+                        {{ $record->mcc }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {{ $record->mnc }}
                     </td>
                 </tr>
             @endforeach
@@ -86,27 +91,21 @@
             <thead class="bg-gray-50">
             <tr>
                 <th colspan="2" class="px-6 pt-3 pb-1 text-left text-sm  text-gray-500 uppercase tracking-wider">
-                    Physical Locations
+                    Prefixes
                 </th>
             </tr>
             <tr>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Nickname
-                </th>
-                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Host
+                    Prefix
                 </th>
             </tr>
             </thead>
 
             <tbody class="bg-white divide-y divide-gray-200">
-            @foreach ($physicalLocations as $record)
+            @foreach ($prefixes as $record)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {{ $record->nickname }}
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {{ $record->host }}
+                        {{ $record->prefix }}
                     </td>
                 </tr>
             @endforeach
@@ -119,21 +118,27 @@
             <thead class="bg-gray-50">
             <tr>
                 <th scope="col" class="px-6 pt-3 pb-1 text-left text-sm  text-gray-500 uppercase tracking-wider">
-                    Virtual Locations
+                    Sim Cards
                 </th>
             </tr>
             <tr>
                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Virtual Location Id
+                    ICC Id
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    MSISDN
                 </th>
             </tr>
             </thead>
 
             <tbody class="bg-white divide-y divide-gray-200">
-            @foreach ($virtualLocations as $record)
+            @foreach ($simCards as $record)
                 <tr>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                        {{ $record->id }}
+                        {{ $record->iccid }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {{ $record->msisdn }}
                     </td>
                 </tr>
             @endforeach
