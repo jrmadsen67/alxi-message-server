@@ -20,11 +20,6 @@ class BaseLivewire extends Component
     protected $renderData = [];
 
     // ** Functions **//
-    public function mount()
-    {
-        $this->setData();
-    }
-
     public function hydrate()
     {
         $this->setData();
@@ -32,6 +27,7 @@ class BaseLivewire extends Component
 
     public function render()
     {
+        $this->setData();
         return view('livewire.component', $this->renderData);
     }
 
