@@ -27,14 +27,14 @@
                             </div>
                         </div>
 
-{{--                        <div class="sm:col-span-1">--}}
-{{--                            <label for="cc" class="block text-sm font-medium text-gray-700">--}}
-{{--                                Country--}}
-{{--                            </label>--}}
-{{--                            <div class="mt-1">--}}
-{{--                                <input wire:model="cc" type="text" name="cc" id="cc"  class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        <div class="sm:col-span-1">
+                            <label for="country_id" class="block text-sm font-medium text-gray-700">Location</label>
+                            <select wire:model="country_id" id="country_id" name="country_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                @foreach($countries as $country)
+                                    <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
 
                         <div class="sm:col-span-2 absolute right-0 bottom-0 mr-1/6">
                             <button wire:click="cancel" type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

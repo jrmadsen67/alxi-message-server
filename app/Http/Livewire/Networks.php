@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Country;
 use App\Models\Network;
 
 
@@ -13,12 +14,19 @@ class Networks extends BaseLivewire
     public $prefixes;
     public $simCards;
 
+    public $countries;
+
     protected $rules = [
         'name' => 'required',
         'country_id' => 'required',
     ];
 
     protected $modelName = 'App\Models\Network';
+
+    public function mount()
+    {
+        $this->countries = Country::select('id', 'name')->get();
+    }
 
     public function render()
     {

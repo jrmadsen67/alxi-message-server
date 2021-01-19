@@ -13,7 +13,6 @@
 
                 <div class="">
                     <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 relative">
-                        <input type="hidden" wire:model="selected_id">
                         <div class="sm:col-span-3">
                             <label for="country" class="block text-sm font-medium text-gray-700">
                                 Country
