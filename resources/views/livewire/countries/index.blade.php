@@ -25,8 +25,7 @@
                     {{ $record->cc }}
                 </td>
                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <a href="#" wire:click="edit({{ $record->id }})" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-                    <a href="#" wire:click="delete({{ $record->id }})" class="ml-4 text-red-600 hover:text-indigo-900">Delete</a>
+                    <x-list-row-action-btns :record="$record"></x-list-row-action-btns>
                 </td>
             </tr>
         @endforeach
