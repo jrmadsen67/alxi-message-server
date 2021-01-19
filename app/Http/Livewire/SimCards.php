@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\DevicePlan;
+use App\Models\Network;
 use App\Models\SimCard;
 use Illuminate\Support\Str;
 
@@ -10,14 +12,16 @@ class SimCards extends BaseLivewire
     public $iccid;
     public $msisdn;
     public $network_id;
-    // 'device_plan_id', 'sim_card_plan_id'
+    public $device_plan_id;
 
-//    public $devices;
+    public $networks;
+    public $device_plans;
 
     protected $rules = [
         'iccid' => 'required',
         'msisdn' => 'required',
         'network_id' => 'required',
+        'device_plan_id' => 'required',
     ];
 
     protected $entity = 'sim_cards';
@@ -26,6 +30,8 @@ class SimCards extends BaseLivewire
 
     public function setData()
     {
+        $this->networks = Network::select('id', 'name')->get();
+        $this->device_plans = DevicePlan::select('id', 'nickname')->get();
         $this->renderData = [
             'records' => SimCard::all()->sortBy('iccid'),
             'entity' => Str::plural($this->entity)
@@ -36,6 +42,7 @@ class SimCards extends BaseLivewire
         $this->iccid = null;
         $this->msisdn = null;
         $this->network_id = null;
+        $this->device_plan_id = null;
     }
 
     public function edit($id)
@@ -46,8 +53,7 @@ class SimCards extends BaseLivewire
         $this->iccid = $record->iccid;
         $this->msisdn = $record->msisdn;
         $this->network_id = $record->network_id;
-
-//        $this->devices = $record->devices;
+        $this->device_plan_id = $record->device_plan_id;
 
         $this->updateMode = true;
     }

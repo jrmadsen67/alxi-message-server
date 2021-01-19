@@ -12,4 +12,9 @@ class SimCard extends Model
     protected $fillable = [
         'iccid', 'msisdn', 'network_id', 'device_plan_id', 'sim_card_plan_id'
     ];
+
+    public function devicePlan()
+    {
+        return $this->hasOne(DevicePlan::class);
+    }
 }
