@@ -12,6 +12,7 @@ use App\Http\Livewire\Auth\Verify;
 use App\Http\Livewire\CountryForm;
 use App\Http\Livewire\Countries;
 use App\Http\Livewire\DeviceGroups;
+use App\Http\Livewire\DevicePlans;
 use App\Http\Livewire\Devices;
 use App\Http\Livewire\MccMncs;
 use App\Http\Livewire\Networks;
@@ -71,6 +72,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/countries', Countries::class)->name('countries');
     Route::get('/networks', Networks::class)->name('networks');
+    Route::get('/device-plans', DevicePlans::class)->name('device-plans');
     Route::get('/device-groups', DeviceGroups::class)->name('device-groups');
     Route::get('/devices', Devices::class)->name('devices');
     Route::get('/allocations', Allocations::class)->name('allocations');
