@@ -12,8 +12,10 @@ class PhysicalLocations extends BaseLivewire
     public $nickname;
     public $host;
     public $country_id;
+    public $devices;
 
     public $countries;
+
 
     protected $rules = [
         'nickname' => 'required',

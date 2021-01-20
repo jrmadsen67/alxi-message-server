@@ -67,3 +67,44 @@
         </form>
     </div>
 </div>
+
+<div class="grid grid-cols-1 gap-1 mt-10 mb-10">
+    <x-list-datatable>
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+            <tr>
+                <th colspan="3" scope="col" class="px-6 pt-3 pb-1 text-left text-sm  text-gray-500 uppercase tracking-wider">
+                    Devices
+                </th>
+            </tr>
+            <tr>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Nickname
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    IMEI
+                </th>
+                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    OS
+                </th>
+            </tr>
+            </thead>
+
+            <tbody class="bg-white divide-y divide-gray-200">
+            @foreach ($devices as $record)
+                <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {{ $record->name }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {{ $record->imei }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {{ $record->os }}
+                    </td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </x-list-datatable>
+</div>
