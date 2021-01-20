@@ -40,7 +40,9 @@
                                 @error('msisdn') <span class="error">{{ $message }}</span> @enderror
                             </div>
                         </div>
+                    </div>
 
+                    <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 relative">
                         <div class="sm:col-span-1">
                             <label for="network_id" class="block text-sm font-medium text-gray-700">Network</label>
                             <div class="mt-1">
@@ -58,6 +60,18 @@
                                 <select wire:model="device_plan_id" id="device_plan_id" name="device_plan_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                                     @foreach($device_plans as $device_plan)
                                         <option value="{{ $device_plan->id }}">{{ $device_plan->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-1">
+                            <label for="simcard_plan_id" class="block text-sm font-medium text-gray-700">SIM Card Plans</label>
+                            <div class="mt-1">
+                                <select wire:model="simcard_plan_id" id="simcard_plan_id" name="simcard_plan_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                                    <option>Select a SIM Card Plan</option>
+                                    @foreach($simcard_plans as $simcard_plan)
+                                        <option value="{{ $simcard_plan->id }}">{{ $simcard_plan->nickname }}</option>
                                     @endforeach
                                 </select>
                             </div>

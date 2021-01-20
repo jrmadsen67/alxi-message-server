@@ -9,8 +9,6 @@ class DeviceGroups extends BaseLivewire
 {
     public $nickname;
 
-//    public $allocations;
-
     protected $rules = [
         'nickname' => 'required',
     ];
@@ -37,8 +35,6 @@ class DeviceGroups extends BaseLivewire
 
         $this->selected_id = $record->id;
         $this->nickname = $record->nickname;
-
-//        $this->allocations = $record->allocations;
 
         $this->updateMode = true;
     }

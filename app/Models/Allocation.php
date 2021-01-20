@@ -11,5 +11,18 @@ class Allocation extends Model
 
     protected $fillable = ['device_id', 'sim_card_id', 'device_group_id'];
 
+    public function device()
+    {
+        return $this->hasOne(Device::class);
+    }
 
+    public function simCard()
+    {
+        return $this->hasOne(SimCard::class);
+    }
+
+    public function deviceGroup()
+    {
+        return $this->hasOne(DeviceGroup::class);
+    }
 }

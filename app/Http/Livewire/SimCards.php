@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\DevicePlan;
 use App\Models\Network;
 use App\Models\SimCard;
+use App\Models\SimCardPlan;
 use Illuminate\Support\Str;
 
 class SimCards extends BaseLivewire
@@ -17,6 +18,7 @@ class SimCards extends BaseLivewire
 
     public $networks;
     public $device_plans;
+    public $simcard_plans;
 
     protected $rules = [
         'iccid' => 'required',
@@ -34,6 +36,7 @@ class SimCards extends BaseLivewire
     {
         $this->networks = Network::select('id', 'name')->get();
         $this->device_plans = DevicePlan::select('id', 'nickname')->get();
+        $this->simcard_plans = SimCardPlan::select('id', 'nickname')->get();
         $this->renderData = [
             'records' => SimCard::all()->sortBy('iccid'),
             'entity' => Str::plural($this->entity)
