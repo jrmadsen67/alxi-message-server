@@ -13,6 +13,11 @@ class PhysicalLocation extends Model
         'nickname', 'host', 'country_id'
     ];
 
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
     public function devices()
     {
         return $this->hasMany(Device::class);

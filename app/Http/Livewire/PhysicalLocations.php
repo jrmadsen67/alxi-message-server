@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Country;
+use App\Models\Device;
 use App\Models\PhysicalLocation;
 use Illuminate\Support\Str;
 
@@ -11,7 +13,7 @@ class PhysicalLocations extends BaseLivewire
     public $host;
     public $country_id;
 
-//    public $devices;
+    public $countries;
 
     protected $rules = [
         'nickname' => 'required',
@@ -25,6 +27,7 @@ class PhysicalLocations extends BaseLivewire
 
     public function setData()
     {
+        $this->countries = Country::select('id', 'name')->get();
         $this->renderData = [
             'records' => PhysicalLocation::all()->sortBy('nickname'),
             'entity' => Str::plural($this->entity)
@@ -45,8 +48,7 @@ class PhysicalLocations extends BaseLivewire
         $this->nickname = $record->nickname;
         $this->host = $record->host;
         $this->country_id = $record->country_id;
-
-//        $this->devices = $record->devices;
+        $this->devices = $record->devices;
 
         $this->updateMode = true;
     }
