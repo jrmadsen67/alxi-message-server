@@ -17,6 +17,7 @@ use App\Http\Livewire\MccMncs;
 use App\Http\Livewire\Networks;
 use App\Http\Livewire\PhysicalLocations;
 use App\Http\Livewire\Prefixes;
+use App\Http\Livewire\SimCardPlans;
 use App\Http\Livewire\SimCards;
 use App\Http\Livewire\VirtualLocations;
 use Illuminate\Support\Facades\Route;
@@ -76,6 +77,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/mcc-mncs', MccMncs::class)->name('mcc-mncs');
     Route::get('/physical-locations', PhysicalLocations::class)->name('physical-locations');
     Route::get('/prefixes', Prefixes::class)->name('prefixes');
+    Route::get('/sim-card-plans', SimCardPlans::class)->name('sim-card-plans');
     Route::get('/sim-cards', SimCards::class)->name('sim-cards');
     Route::get('/virtual-locations', VirtualLocations::class)->name('virtual-locations');
 
