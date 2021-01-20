@@ -2,19 +2,19 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Country;
 use App\Models\VirtualLocation;
 use Illuminate\Support\Str;
 
 class VirtualLocations extends BaseLivewire
 {
     public $country_id;
+    public $devices;
 
-//    public $devices;
+    public $countries;
 
     protected $rules = [
         'country_id' => 'required',
-        'imei' => 'required',
-        'os' => 'required',
     ];
 
     protected $entity = 'virtual_locations';
@@ -23,8 +23,9 @@ class VirtualLocations extends BaseLivewire
 
     public function setData()
     {
+        $this->countries = Country::select('id', 'name')->get();
         $this->renderData = [
-            'records' => VirtualLocation::all()->sortBy('country_id'),
+            'records' => VirtualLocation::all()->sortBy('id'),
             'entity' => Str::plural($this->entity)
         ];
     }
@@ -39,8 +40,7 @@ class VirtualLocations extends BaseLivewire
 
         $this->selected_id = $record->id;
         $this->country_id = $record->country_id;
-
-//        $this->devices = $record->devices;
+        $this->devices = $record->devices;
 
         $this->updateMode = true;
     }
