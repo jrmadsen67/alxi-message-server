@@ -13,6 +13,7 @@ class SimCards extends BaseLivewire
     public $msisdn;
     public $network_id;
     public $device_plan_id;
+    public $sim_card_plan_id;
 
     public $networks;
     public $device_plans;
@@ -22,6 +23,7 @@ class SimCards extends BaseLivewire
         'msisdn' => 'required',
         'network_id' => 'required',
         'device_plan_id' => 'required',
+        'sim_card_plan_id' => 'required',
     ];
 
     protected $entity = 'sim_cards';
@@ -43,6 +45,7 @@ class SimCards extends BaseLivewire
         $this->msisdn = null;
         $this->network_id = null;
         $this->device_plan_id = null;
+        $this->sim_card_plan_id = null;
     }
 
     public function edit($id)
@@ -54,6 +57,7 @@ class SimCards extends BaseLivewire
         $this->msisdn = $record->msisdn;
         $this->network_id = $record->network_id;
         $this->device_plan_id = $record->device_plan_id;
+        $this->sim_card_plan_id = $record->sim_card_plan_id;
 
         $this->updateMode = true;
     }

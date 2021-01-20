@@ -15,7 +15,7 @@ class DeviceGroups extends BaseLivewire
         'nickname' => 'required',
     ];
 
-    protected $entity = 'device_group';
+    protected $entity = 'device_groups';
 
     protected $modelName = 'App\Models\DeviceGroup';
 

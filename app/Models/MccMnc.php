@@ -14,4 +14,9 @@ class MccMnc extends Model
         'mnc',
         'network_id',
     ];
+
+    public function network()
+    {
+        return  $this->belongsTo(Network::class);
+    }
 }

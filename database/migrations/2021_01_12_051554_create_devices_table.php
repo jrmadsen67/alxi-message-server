@@ -21,6 +21,7 @@ class CreateDevicesTable extends Migration
             $table->unsignedBigInteger('virtual_location_id')->nullable();
             $table->unsignedBigInteger('physical_location_id')->nullable();
             $table->unsignedInteger('physical_location_port')->nullable();
+            $table->unsignedInteger('device_plan_id')->nullable();
             $table->timestamps();
 
             $table->unique([

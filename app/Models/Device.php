@@ -15,6 +15,7 @@ class Device extends Model
         'os',
         'virtual_location_id',
         'physical_location_id',
-        'physical_location_port'
+        'physical_location_port',
+        'device_plan_id'
     ];
 }
