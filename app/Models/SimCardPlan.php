@@ -15,4 +15,9 @@ class SimCardPlan extends Model
         'daily_capacity',
         'monthly_capacity'
     ];
+
+    public function simcards()
+    {
+        return $this->hasMany(SimCard::class);
+    }
 }
