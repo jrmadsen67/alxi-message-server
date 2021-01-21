@@ -15,4 +15,14 @@ class DevicePlan extends Model
         'daily_capacity',
         'monthly_capacity'
     ];
+
+    public function devices()
+    {
+        return $this->hasMany(Device::class);
+    }
+
+    public function simcards()
+    {
+        return $this->hasMany(SimCard::class);
+    }
 }

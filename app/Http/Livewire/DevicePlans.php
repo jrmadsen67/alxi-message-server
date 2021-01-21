@@ -12,6 +12,9 @@ class DevicePlans extends BaseLivewire
     public $daily_capacity;
     public $monthly_capacity;
 
+    public $devices;
+    public $simcards;
+
     protected $rules = [
         'nickname' => 'required',
         'hourly_capacity' => 'required',
@@ -47,6 +50,9 @@ class DevicePlans extends BaseLivewire
         $this->hourly_capacity = $record->hourly_capacity;
         $this->daily_capacity = $record->daily_capacity;
         $this->monthly_capacity = $record->monthly_capacity;
+
+        $this->devices = $record->devices;
+        $this->simcards = $record->simcards;
 
         $this->updateMode = true;
     }
