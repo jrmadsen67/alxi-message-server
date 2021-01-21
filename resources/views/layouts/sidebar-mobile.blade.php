@@ -35,7 +35,7 @@
                 </button>
             </div>
             <div class="flex-shrink-0 flex items-center px-4">
-                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/easywire-logo-cyan-300-mark-white-text.svg" alt="Easywire logo">
+                <img class="h-8 w-auto" src="img/logos/logo.png" alt="Easywire logo">
             </div>
             <nav class="mt-5 flex-shrink-0 h-full divide-y divide-cyan-800 overflow-y-auto" aria-label="Sidebar">
                 <div class="px-2 space-y-1">
